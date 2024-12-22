@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { BackgroundComponent } from "../../shared/components/background/background.component";
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [BackgroundComponent],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
 
