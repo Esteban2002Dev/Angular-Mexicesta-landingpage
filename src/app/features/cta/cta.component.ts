@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { BackgroundComponent } from "../../shared/components/background/background.component";
 
 @Component({
   selector: 'app-cta',
-  imports: [],
+  imports: [BackgroundComponent],
   templateUrl: './cta.component.html',
-  styleUrl: './cta.component.scss'
 })
 export class CTAComponent {
 
