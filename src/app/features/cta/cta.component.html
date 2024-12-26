@@ -1,11 +1,58 @@
-<section id="section-2" class="section flex relative h-screen w-full bg-darkStone">
+<section id="CTA" class="section relative h-screen w-full bg-darkStone text-bone flex items-center pb-[150px]">
   <app-background />
-  <div class="flex flex-col w-full items-center text-bone text-center mt-[70px] sm:mt-[80px] md:mt-[90px] lg:mt-[100px] xl:mt-[110px]">
-    <h2 class=" font-raleway font-bold text-[30px] sm:text-[40px] md:text-[60px] lg:text-[70px] xl:text-[90px]">
-      Mexicesta
-    </h2>
-    <p class="max-w-xs sm:max-w-md font-raleway text-[15px] sm:text-[16px] md:text-18px] lg:text-[20px] xl:text-[22px]">
-      Mexicesta: The app that turns shopping chaos into child's play.
-    </p>
+  <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+    <!-- Left Cards -->
+    <div class="hidden lg:flex flex-col gap-6 items-center lg:items-end text-center lg:text-left lg:mt-32">
+      @for (description of descriptions.slice(0, 2); track $index) {
+        <article class="bg-bone bg-opacity-5 p-6 rounded-lg shadow-md max-w-xs">
+          <h3 class="text-lg font-bold">{{description.title}}</h3>
+          <p class="text-sm text-gray-300 mt-2">
+            {{description.description}}
+          </p>
+        </article>
+      }
+    </div>
+
+    <!-- Center Content -->
+    <div class="flex flex-col items-center justify-center text-center h-full w-full px-4 p-24">
+      <h2 class="font-raleway font-bold text-[30px] sm:text-[40px] md:text-[60px] lg:text-[70px] xl:text-[90px]">
+        Mexicesta
+      </h2>
+      <p class="max-w-xs sm:max-w-md font-raleway text-[15px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] mt-4">
+        Mexicesta: The app that turns shopping chaos into child's play.
+      </p>
+
+      <img src="images/mockups/mockup_1.png" alt="Mexicesta app mockup"
+        class="w-full">
+
+      <div class="flex space-x-4">
+        <app-download-button [buttonText]="'App for android'" [svgPath]="'svg/android.svg'" />
+        <app-download-button [buttonText]="'App for IOS'" [svgPath]="'svg/apple.svg'" />
+      </div>
+    </div>
+
+    <!-- Right Cards -->
+    <div class="hidden lg:flex flex-col gap-6 items-center lg:items-start text-center lg:text-right lg:mt-32">
+      @for (description of descriptions.slice(2); track $index) {
+        <article class="bg-bone bg-opacity-5 p-6 rounded-lg shadow-md max-w-xs">
+          <h3 class="text-lg font-bold">{{description.title}}</h3>
+          <p class="text-sm text-gray-300 mt-2">
+            {{description.description}}
+          </p>
+        </article>
+      }
+    </div>
+
+    <!-- Cards for Small Devices -->
+    <div class="absolute bottom-28 left-0 w-full px-4 flex gap-4 overflow-x-scroll lg:hidden">
+      @for (description of descriptions; track $index) {
+        <article class="bg-darkStone bg-opacity-50 p-4 rounded-lg shadow-md min-w-[280px]">
+          <h3 class="text-sm font-bold text-white">{{description.title}}</h3>
+          <p class="text-xs text-gray-300 mt-2">
+            {{description.description}}
+          </p>
+        </article>
+      }
+    </div>
   </div>
 </section>

@@ -2,10 +2,11 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { HeroComponent } from "./features/hero/hero.component";
 import { CTAComponent } from "./features/cta/cta.component";
 import { isPlatformBrowser } from '@angular/common';
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeroComponent, CTAComponent],
+  imports: [HeroComponent, CTAComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
