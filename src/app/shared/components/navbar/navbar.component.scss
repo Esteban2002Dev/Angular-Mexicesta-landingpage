@@ -1,0 +1,26 @@
+.section-text {
+  position: relative;
+  display: inline-block;
+  color: #fff; /* Ajusta el color inicial si lo necesitas */
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.section-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #65DE80;
+  transition: width 0.4s ease-in-out;
+}
+
+.section-text:hover {
+  color: #65DE80;
+  transform: scale(1.05);
+}
+
+.section-text:hover::after {
+  width: 100%;
+}
