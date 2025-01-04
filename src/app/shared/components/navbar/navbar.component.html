@@ -1,28 +1,36 @@
 <!-- Navbar -->
-<nav class="sticky top-0 bg-opacity-40 shadow-md z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <div class="flex justify-between items-center text-bone">
-      <!-- Logo or Brand Name -->
-      <a href="#" class="text-2xl font-semibold ">
-        <img class="w-1/3" src="images/mexicesta.png" alt="">
-      </a>
+<header  [ngClass]="{'bg-darkStone bg-opacity-100': isMenuOpen}" class="sticky top-0 bg-opacity-40 w-full z-50 text-bone shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Brand Name -->
+    <a href="#" class="text-2xl font-semibold">
+      <img class="w-1/3" src="images/mexicesta.png" alt="Mexicesta logo">
+    </a>
 
-      <!-- Navbar Links -->
-      <div class="hidden md:flex space-x-8">
-        <a href="#hero" class="text-lg">Home</a>
-        <a href="#CTA" class="text-lg">Mexicesta</a>
-        <a href="#services" class="text-lg">Services</a>
-        <a href="#contact" class="text-lg">Contact</a>
-      </div>
+    <!-- Desktop Navbar Links -->
+    <nav class="hidden md:flex space-x-8 items-center justify-end w-full">
+      <a href="#hero" (click)="scrollToSection('hero')" class="text-lg cursor-pointer section-text">Home</a>
+      <a href="#CTA" (click)="scrollToSection('CTA')" class="text-lg cursor-pointer section-text">Mexicesta</a>
+      <a href="#services" (click)="scrollToSection('services')" class="text-lg cursor-pointer section-text">Services</a>
+      <a href="#contact" (click)="scrollToSection('contact')" class="text-lg cursor-pointer section-text">Contact</a>
+    </nav>
 
-      <!-- Mobile Menu Button (Hamburger icon for mobile) -->
-      <div class="md:hidden">
-        <button class=" focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+    <!-- Mobile Menu Button (Hamburger icon for mobile) -->
+    <button aria-label="Menu" name="Menu" (click)="toggleMenu()" class="sm:hidden justify-end rounded-xl p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+      </svg>
+    </button>
   </div>
-</nav>
+
+  <!-- Mobile Navbar Links (Dropdown) -->
+  @if ( isMenuOpen ) {
+    <div class="sm:hidden absolute left-0 w-full bg-darkStone bg-opacity-75 flex flex-col justify-start items-center space-y-4 p-4 transition-all duration-500 ease-out z-50">
+      <nav class="w-full text-center">
+        <a href="#hero" (click)="scrollToSection('hero')" class="block w-full py-2 text-bone">Home</a>
+        <a href="#CTA" class="block w-full py-2 text-bone">Mexicesta</a>
+        <a href="#services" class="block w-full py-2 text-bone">Services</a>
+        <a href="#contact" class="block w-full py-2 text-bone">Contact</a>
+      </nav>
+    </div>
+  }
+</header>

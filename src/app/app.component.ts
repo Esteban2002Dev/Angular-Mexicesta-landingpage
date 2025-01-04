@@ -3,6 +3,7 @@ import { HeroComponent } from "./features/hero/hero.component";
 import { CTAComponent } from "./features/cta/cta.component";
 import { isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+import { ScrollService } from './shared/services/scroll.service';
 
 @Component({
   selector: 'app-root',
@@ -11,25 +12,24 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  private sections: HTMLElement[] = [];
-  private currentSectionIndex: number = 0;
   private touchStartY: number = 0;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private _scrollService: ScrollService
   ) { }
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.sections = Array.from(document.querySelectorAll('.section'));
+      this._scrollService.sections = Array.from(document.querySelectorAll('.section'));
     }
   }
 
   @HostListener('window:wheel', ['$event'])
   onScroll(event: WheelEvent) {
     if (event.deltaY > 0) {
-      this.scrollToNextSection();
+      this._scrollService.scrollToNextSection();
     } else {
-      this.scrollToPreviousSection();
+      this._scrollService.scrollToPreviousSection();
     }
   }
 
@@ -43,30 +43,10 @@ export class AppComponent {
     const touchEndY = event.changedTouches[0].clientY;
 
     if (this.touchStartY - touchEndY > 50) {
-      this.scrollToNextSection();
+      this._scrollService.scrollToNextSection();
     } else if (touchEndY - this.touchStartY > 50) {
-      this.scrollToPreviousSection();
+      this._scrollService.scrollToPreviousSection();
     }
   }
 
-  private scrollToNextSection() {
-    if (this.currentSectionIndex < this.sections.length - 1) {
-      this.currentSectionIndex++;
-      this.scrollToSection(this.currentSectionIndex);
-    }
-  }
-
-  private scrollToPreviousSection() {
-    if (this.currentSectionIndex > 0) {
-      this.currentSectionIndex--;
-      this.scrollToSection(this.currentSectionIndex);
-    }
-  }
-
-  private scrollToSection(index: number) {
-    const section = this.sections[index];
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 }
