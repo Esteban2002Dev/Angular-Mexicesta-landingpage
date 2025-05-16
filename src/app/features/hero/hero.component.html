@@ -1,11 +1,17 @@
 <section id="hero" class="section flex relative h-screen w-full bg-darkStone pb-[100px]">
   <app-background />
-  <div class="w-full flex flex-col text-bone justify-center items-center text-center">
+
+  <div class="w-full flex flex-col text-bone justify-center items-center text-center px-4">
     <h1 class="font-raleway font-bold text-[50px] sm:text-[70px] md:text-[80px] lg:text-[120px] xl:text-[150px]">
       Mexicesta
     </h1>
     <p class="max-w-xs sm:max-w-md font-raleway text-[17px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[22px]">
-      Mexicesta: The app that turns shopping chaos into child's play.
+      Turn shopping chaos into clarity – the app that makes it effortless.
     </p>
+
+    <button (click)="scrollToSection('CTA')" class="mt-8 px-6 py-3 bg-bone text-darkStone font-semibold rounded-xl shadow hover:bg-bone/90 transition">
+      Get Started
+    </button>
+
   </div>
 </section>

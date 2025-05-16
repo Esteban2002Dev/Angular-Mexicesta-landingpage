@@ -4,10 +4,11 @@ import { CTAComponent } from "./features/cta/cta.component";
 import { isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { ScrollService } from './shared/services/scroll.service';
+import { HowItWorksComponent } from "./features/how-it-works/how-it-works.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeroComponent, CTAComponent, NavbarComponent],
+  imports: [HeroComponent, CTAComponent, NavbarComponent, HowItWorksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
