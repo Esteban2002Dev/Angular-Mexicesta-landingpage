@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { BackgroundComponent } from "../../shared/components/background/background.component";
 import { DownloadButtonComponent } from "../../shared/components/download-button/download-button.component";
+import { IDescription } from '../data/interfaces/description.interface';
 
-interface Description {
-  title: string;
-  description: string;
-}
 @Component({
   selector: 'app-cta',
   imports: [BackgroundComponent, DownloadButtonComponent],
   templateUrl: './cta.component.html',
 })
 export class  CTAComponent {
-  public descriptions: Description[] = [
+  public descriptions: IDescription[] = [
     {
       title: 'Easy to Use and Navigate',
       description: `Mexicesta's interface is designed to be simple and smooth, making browsing through your shopping carts quick and effortless.`
