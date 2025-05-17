@@ -11,6 +11,7 @@
       <a href="#hero" (click)="scrollToSection('hero')" class="text-lg cursor-pointer section-text">Home</a>
       <a href="#CTA" (click)="scrollToSection('CTA')" class="text-lg cursor-pointer section-text">Mexicesta</a>
       <a href="#HIW" (click)="scrollToSection('HIW')" class="text-lg cursor-pointer section-text">How it works</a>
+      <a href="#demo" (click)="scrollToSection('demo')" class="text-lg cursor-pointer section-text">Video demo</a>
       <a href="#contact" (click)="scrollToSection('contact')" class="text-lg cursor-pointer section-text">Contact</a>
     </nav>
 
@@ -26,10 +27,11 @@
   @if ( isMenuOpen ) {
     <div class="sm:hidden absolute left-0 w-full bg-darkStone bg-opacity-75 flex flex-col justify-start items-center space-y-4 p-4 transition-all duration-500 ease-out z-50">
       <nav class="w-full text-center">
-        <a href="#hero" (click)="scrollToSection('hero')" class="block w-full py-2 text-bone">Home</a>
-        <a href="#CTA" class="block w-full py-2 text-bone">Mexicesta</a>
-        <a href="#HIW" class="block w-full py-2 text-bone">How it works</a>
-        <a href="#contact" class="block w-full py-2 text-bone">Contact</a>
+        <a (click)="isMenuOpen = !isMenuOpen; scrollToSection('hero')" href="#hero" class="block w-full py-2 text-bone">Home</a>
+        <a (click)="isMenuOpen = !isMenuOpen; scrollToSection('CTA')" href="#CTA" class="block w-full py-2 text-bone">Mexicesta</a>
+        <a (click)="isMenuOpen = !isMenuOpen; scrollToSection('HIW')" href="#HIW" class="block w-full py-2 text-bone">How it works</a>
+        <a (click)="isMenuOpen = !isMenuOpen; scrollToSection('demo')" href="#demo" class="block w-full py-2 text-bone">Video demo</a>
+        <a (click)="isMenuOpen = !isMenuOpen; scrollToSection('contact')" href="#contact" class="block w-full py-2 text-bone">Contact</a>
       </nav>
     </div>
   }

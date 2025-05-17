@@ -6,10 +6,11 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { ScrollService } from './shared/services/scroll.service';
 import { HowItWorksComponent } from "./features/how-it-works/how-it-works.component";
 import { ContactComponent } from "./features/contact/contact.component";
+import { VideoDemoComponent } from "./features/video-demo/video-demo.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeroComponent, CTAComponent, NavbarComponent, HowItWorksComponent, ContactComponent],
+  imports: [HeroComponent, CTAComponent, NavbarComponent, HowItWorksComponent, ContactComponent, VideoDemoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
