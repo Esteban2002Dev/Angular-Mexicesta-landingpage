@@ -1,14 +1,12 @@
-<button (click)="onDownloadClick()" class="flex items-center bg-[#D695AD] text-bone px-3 py-1.5 rounded-md transition-all duration-500 ease-in-out transform hover:scale-105 text-sm">
-  @if (!isSuccess) {
-    <div class="icon-wrapper mr-2">
-      <img [src]="svgPath" alt="icono" />
-    </div>
-  }
-
-  @if (isSuccess) {
-    <div class="icon-wrapper mr-2">
-      <img src="svg/check_mark.svg" alt="icono" />
-    </div>
-  }
+<button
+  (click)="onDownloadClick()"
+  class="flex items-center justify-center bg-[#E53067] text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-[#d82c5d] transition duration-300 ease-in-out text-base z-50">
+  <div class="icon-wrapper mr-3 w-5 h-5">
+    <img
+      [src]="isSuccess ? 'svg/check_mark.svg' : svgPath"
+      alt="icono"
+      class="w-full h-full object-contain"
+    />
+  </div>
   {{ buttonText }}
 </button>
