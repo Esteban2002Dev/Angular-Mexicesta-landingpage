@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { BackgroundComponent } from "../../shared/components/background/background.component";
-import { DownloadButtonComponent } from "../../shared/components/download-button/download-button.component";
 import { IDescription } from '../data/interfaces/description.interface';
 
 @Component({
   selector: 'app-cta',
-  imports: [BackgroundComponent, DownloadButtonComponent],
+  imports: [BackgroundComponent],
   templateUrl: './cta.component.html',
 })
 export class  CTAComponent {

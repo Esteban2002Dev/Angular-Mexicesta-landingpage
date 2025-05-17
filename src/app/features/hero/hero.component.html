@@ -9,9 +9,22 @@
       Turn shopping chaos into clarity – the app that makes it effortless.
     </p>
 
-    <button (click)="scrollToSection('CTA')" class="mt-8 px-6 py-3 bg-bone text-darkStone font-semibold rounded-xl shadow hover:bg-bone/90 transition">
-      Get Started
-    </button>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a rel="noopener"
+        href="https://github.com/Esteban2002Dev/React-Native-Mexicesta/releases/tag/V1.0"
+        target="_blank"
+        class="px-6 py-3 bg-[#E53067] text-white font-semibold rounded-xl shadow hover:bg-[#d82c5d] transition text-center">
+        Descargar la app
+      </a>
+
+      <button
+        type="button"
+        (click)="scrollToSection('CTA')"
+        class="px-6 py-3 border border-[#E53067] text-[#E53067] font-semibold rounded-xl hover:bg-[#E53067]/10 transition">
+        Ver demo
+      </button>
+    </div>
+
 
   </div>
 </section>
